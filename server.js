@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import connectDB from "./config/db.js";
 import userRouter from './routes/userRouter.js';
 import bookRouter from './routes/bookRouter.js';
 
@@ -14,10 +15,9 @@ app.use(cors());
 
 
 app.use("/api/user",userRouter);
-app.use("/api/admin",adminRouter);
-app.use("/api/doctor",doctorRouter);
+app.use("/api/books",bookRouter);
 
-app.use(errorHandler);
+// app.use(errorHandler);
 
 app.listen(port, () => {
     connectDB();
